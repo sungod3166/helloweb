@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "djangoapps/base.html" %}
+{% block content %}
+<P>Topics</P>
+<ul>
+{% for topic in Topics %}
+    <li>
+        <a href="{% url 'djangoapps:topic' topic.id %}">{{ topic }}</a>
+    </li>
+{% empty %}
+    <li>There is no topic for this topic.</li>
+{% endfor %}
+</ul>
+{% endblock content %}
+</body>
+</html>
